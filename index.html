@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tutorial 1 - Postions and Backgrounds</title>
+        <style>
+            #myBG{
+                position: fixed;
+                left: 0px;
+                top: 0px;
+                width: 100vw;
+                height: 100vh;
+                object-fit: cover;
+                object-position: center;
+            }
+            
+            #controls{
+                position: absolute;
+                left: 0px;
+                top: 15%;
+                
+            }
+            
+            #img1{
+                background-image: url(Razor_Shuriken.png);
+                
+            }
+            
+            #img2{
+                left: 30px;
+                background-image: url(Living_Shadow.png);
+            }
+            
+            #img3{
+                left: 30px;
+                background-image: url(Shadow_Slash.png);
+                
+            }
+            
+            #img4{
+                background-image: url(Death_Mark.png);
+                
+            }
+            
+            .thumbnails{
+                width: 75px;
+                height: 75px;
+                position: relative;
+                margin: 30px;
+                background-size: cover;
+                background-position: center;
+                opacity: 0.5;
+                border-radius: 75px;
+                border: 2px solid #FFF;
+                transition: opacity 1s;
+                cursor: pointer;
+            }
+            
+            .thumbnails:hover{
+                opacity: 1;
+            }
+            
+            #info{
+                opacity: 0;
+                position: absolute;
+                left: 400px;
+                top: 0px;
+                bottom: 150px;
+                margin: auto;
+                height: 60vh;
+                width: 280px;
+                background-color:rgba(255,255,255,0.8);
+                transition: opacity 1s;
+                
+            }
+            
+            #infoimg{
+                background-position: center;
+                width: 280px;
+                height: 280px;
+                
+            }
+            
+            #infotext{
+                width: 275px;
+                height: 275px;
+                padding: 10px;
+                
+            }
+            
+            #close{
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                margin: 10px;
+                background-color: darkgrey;
+                color: #FFF;
+                left: -12px;
+                top: -12px;
+                padding: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    
+    <body>
+        
+        <video id='myBG' autoplay loop>
+            <source src="animated_zed.mp4"/>
+        </video>
+        <div id='controls'>
+            <div id='img1' class='thumbnails'></div>
+            <div id='img2' class='thumbnails'></div>
+            <div id='img3' class='thumbnails'></div>
+            <div id='img4' class='thumbnails'></div>
+        </div>
+        <div id='info'>
+            <div id='infoimg'></div>
+            <div id='infotext'>Q Ability</div>
+            <div id='close'>X</div>
+        </div>
+        
+        <script>
+            document.getElementById('img1').addEventListener('click',function(){
+                document.getElementById('infoimg').style.backgroundImage = 'url(Razor_Shuriken.png)';
+                document.getElementById('infoimg').style.backgroundSize = 'cover';
+                document.getElementById('infoimg').style.backgroundPosition = 'center center';
+                document.getElementById('info').style.opacity = 1;
+                document.getElementById('infotext').innerHTML = "(Razor Shuriken) ACTIVE: Zed throws his spinning blades forward, dealing physical damage to all enemies they pass through, reduced to 60% against units beyond the first. Active Living Shadows also throw a shuriken towards the target point. Additional shurikens hitting the same enemy only deal 75% damage.";
+            });
+            
+            document.getElementById('img2').addEventListener('click',function(){
+                document.getElementById('infoimg').style.backgroundImage = 'url(Living_Shadow.png)';
+                document.getElementById('infoimg').style.backgroundSize = 'cover';
+                document.getElementById('infoimg').style.backgroundPosition = 'center center';
+                document.getElementById('info').style.opacity = 1;
+                document.getElementById('infotext').innerHTML = "(Shadow Slash) FIRST CAST: Zed's shadow dashes forward, remaining in place for 5 seconds and being able to mimic Razor Shuriken Razor Shuriken and Shadow Slash Shadow Slash. Zed restores energy whenever Living Shadow lands a mimicked ability on the same target he does.SECOND CAST: While within 1300 units of each other, Zed and his shadow blink to their respective locations, swapping places.";
+            });
+            
+            document.getElementById('img3').addEventListener('click',function(){
+                document.getElementById('infoimg').style.backgroundImage = 'url(Shadow_Slash.png)';
+                document.getElementById('infoimg').style.backgroundSize = 'cover';
+                document.getElementById('infoimg').style.backgroundPosition = 'center center';
+                document.getElementById('info').style.opacity = 1;
+                document.getElementById('infotext').innerHTML = "(Shadow Slash) ACTIVE: Zed and his Living Shadow Living Shadows slash, dealing physical damage to surrounding enemies. Enemies hit by a Living Shadow Living Shadow's Shadow Slash are Slow icon slowed for 1.5 seconds. Enemies hit by multiple slashes take no additional damage but are slowed by a 50% stronger slow. Each enemy champion hit by Zed's slash reduces Living Shadow Living Shadow's Cooldown reduction icon cooldown by 2 seconds.";
+            });
+            document.getElementById('img4').addEventListener('click',function(){
+                document.getElementById('infoimg').style.backgroundImage = 'url(Death_Mark.png)';
+                document.getElementById('infoimg').style.backgroundSize = 'cover';
+                document.getElementById('infoimg').style.backgroundPosition = 'center center';
+                document.getElementById('info').style.opacity = 1;
+                document.getElementById('infotext').innerHTML = "FIRST CAST: Zed becomes Playful untargetable for 0.75 seconds while dashing behind the target enemy champion, marking them on arrival, becoming Ghost ghosted for 3 seconds, and spawning a Living Shadow Living Shadow at the cast location which lasts for 6 seconds. Death Mark can be reactivated after 0.5 seconds of Zed's reappearance. For the next 3 seconds, the mark stores a percentage of all physical and magic damage Zed deals to the target, detonating at the end of the duration to deal physical damage.";
+            });
+            
+            document.getElementById('close').addEventListener('click',function(){
+                document.getElementById('info').style.opacity = 0;
+            })
+        </script>
+    </body>
+</html>
